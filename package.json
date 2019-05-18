@@ -1,0 +1,35 @@
+{
+  "name": "homebridge-remote-sensor",
+  "version": "0.0.6",
+  "description": "Remote http sensor plugins for HomeBridge",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shamasis/homebridge-remote-sensor.git"
+  },
+  "keywords": [
+    "homebridge",
+    "homebridge-plugin",
+    "plugin",
+    "sensor",
+    "iot"
+  ],
+  "author": "Shamasis Bhattacharya <mail@shamasis.net>",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/shamasis/homebridge-remote-sensor/issues"
+  },
+  "homepage": "https://github.com/shamasis/homebridge-remote-sensor#readme",
+  "engines": {
+    "node": ">=6",
+    "homebridge": ">=0.2.5"
+  },
+  "dependencies": {
+    "fakegato-history": "^0.5.3",
+    "lodash": "^4.17.11",
+    "request": "^2.88.0"
+  }
+}
