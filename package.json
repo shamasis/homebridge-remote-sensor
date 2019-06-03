@@ -1,6 +1,6 @@
 {
   "name": "homebridge-remote-sensor",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "Remote http sensor plugins for HomeBridge",
   "main": "index.js",
   "scripts": {

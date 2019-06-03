@@ -58,7 +58,7 @@ const _ = require('lodash'),
 
         this.getHumiTemp(function (err, humiVal, tempVal) {
           if (err) {
-            return this.log('error getting sensor readings for ' + sensor.name);
+            return sensor.log('error getting sensor readings for ' + sensor.name);
           }
 
           sensor.log('updating sensor readings: ' + humiVal + 'C, ' + tempVal + '%');
@@ -74,10 +74,7 @@ const _ = require('lodash'),
           info = new Service.AccessoryInformation(),
           temp = new Service.TemperatureSensor(this.name),
           humi = new Service.HumiditySensor(this.name),
-          hist = new FakeGatoHistoryService('weather', temp, {
-            storage: 'fs',
-            minutes: sensor.refresh * 10 / 16
-          });
+          hist;
 
         info
           .setCharacteristic(Characteristic.Manufacturer, 'Remote Sensor')
@@ -101,6 +98,9 @@ const _ = require('lodash'),
               done(err, humi);
             });
           });
+
+        // initialise the fake history tracker
+        hist = new FakeGatoHistoryService('weather', temp);
 
         // set to update every refresh interval
         sensor.poll = setInterval(sensor.updateHumiTemp.bind(sensor, humi, temp), sensor.refresh);
